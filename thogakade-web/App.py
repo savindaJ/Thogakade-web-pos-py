@@ -13,9 +13,12 @@ def Index():
     cur = con.cursor()
     cur.execute("SELECT  * FROM customer")
     data = cur.fetchall()
+
+    cur.execute("SELECT  * FROM item")
+    items = cur.fetchall()
     cur.close()
 
-    return render_template('index.html', customer=data)
+    return render_template('index.html', customer=data, item=items)
 
 
 @app.route('/insert', methods=['POST'])
@@ -56,6 +59,11 @@ def update():
         flash("Data Updated Successfully")
         con.commit()
         return redirect(url_for('Index'))
+
+
+@app.route('/item_update', methods=['POST', 'GET'])
+def item_update():
+    print("update")
 
 
 if __name__ == "__main__":
