@@ -66,5 +66,10 @@ def item_update():
     print("update")
 
 
+@app.route('/item_insert', methods=['POST'])
+def item_insert():
+    print("update")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
