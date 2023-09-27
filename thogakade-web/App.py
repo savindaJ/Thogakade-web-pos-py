@@ -24,11 +24,12 @@ def insert():
         flash("Data Inserted Successfully")
         id = request.form['id']
         name = request.form['name']
-        email = request.form['email']
-        phone = request.form['phone']
-        print(email, name, phone)
+        address = request.form['address']
+        salary = request.form['salary']
+        print(address, name, salary)
         # # cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO customer (id, name, gmail, phone) VALUES (%s, %s, %s, %s)", (id, name, email, phone))
+        cur.execute("INSERT INTO customer (customerID, CustomerAddress, CustomerName, CustomerSalary) VALUES (%s, %s, "
+                    "%s, %s)", (id, name, address, salary))
         con.commit()
         return redirect(url_for('Index'))
 
@@ -37,7 +38,7 @@ def insert():
 def delete(id_data):
     flash("Record Has Been Deleted Successfully")
     # cur = mysql.connection.cursor()
-    cur.execute("DELETE FROM customer WHERE id=%s", (id_data,))
+    cur.execute("DELETE FROM customer WHERE customerID=%s", (id_data,))
     con.commit()
     return redirect(url_for('Index'))
 
