@@ -42,7 +42,7 @@ main>section{
     right: 0;
     box-sizing: border-box;
     background-color: #3c6662;
-    /*overflow: hidden;*/
+    overflow: hidden;
 }
 
 main>section>section{
@@ -50,6 +50,7 @@ main>section>section{
     height: 100vh;
     display: flex;
     box-sizing: border-box;
+    position: relative;
 }
 
 main>section>section>section{
