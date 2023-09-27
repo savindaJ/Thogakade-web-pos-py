@@ -15,7 +15,7 @@ def Index():
     data = cur.fetchall()
     cur.close()
 
-    return render_template('index.html', customer= data)
+    return render_template('index.html', customer=data)
 
 
 @app.route('/insert', methods=['POST'])
@@ -27,7 +27,6 @@ def insert():
         address = request.form['address']
         salary = request.form['salary']
         print(address, name, salary)
-        # # cur = mysql.connection.cursor()
         cur.execute("INSERT INTO customer (customerID, CustomerAddress, CustomerName, CustomerSalary) VALUES (%s, %s, "
                     "%s, %s)", (id, name, address, salary))
         con.commit()
@@ -37,7 +36,6 @@ def insert():
 @app.route('/delete/<string:id_data>', methods=['GET'])
 def delete(id_data):
     flash("Record Has Been Deleted Successfully")
-    # cur = mysql.connection.cursor()
     cur.execute("DELETE FROM customer WHERE customerID=%s", (id_data,))
     con.commit()
     return redirect(url_for('Index'))
