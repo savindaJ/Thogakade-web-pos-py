@@ -105,28 +105,3 @@ main>section>section>section{
 .customer>section>table{
     width: 100%;
 }
-
-/*
-.customer>section>table>thead{
-    height: 40px;
-    background-color: #9aa4ff;
-    color: #29064d;
-    font-size: 20px;
-}
-
-.customer>section>table>tbody>tr{
-    background-color: #e88b0a;
-    height: 30px;
-}
-
-.customer>section>table>tbody>tr>td>button{
-    background-color: #5bfaf6;
-    border: 0;
-    margin-left: 10px;
-    width: 60px;
-    border-radius: 10px;
-}
-
-.customer>section>table>tbody>tr>td>button:hover{
-    background-color: #6f7dff;
-}*/
