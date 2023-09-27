@@ -95,16 +95,18 @@ main>section>section>section{
 }
 
 .customer>section{
-    border: 1px solid red;
-    height: 76vh;
+    height: 100vh;
     position: relative;
     top: 10vh;
+    width:70vw;
+    margin: auto;
 }
 
 .customer>section>table{
     width: 100%;
 }
 
+/*
 .customer>section>table>thead{
     height: 40px;
     background-color: #9aa4ff;
@@ -127,4 +129,4 @@ main>section>section>section{
 
 .customer>section>table>tbody>tr>td>button:hover{
     background-color: #6f7dff;
-}
+}*/
