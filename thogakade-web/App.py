@@ -48,14 +48,13 @@ def update():
     if request.method == 'POST':
         id_data = request.form['id']
         name = request.form['name']
-        email = request.form['email']
-        phone = request.form['phone']
-        print(email)
+        address = request.form['address']
+        salary = request.form['salary']
         cur.execute("""
                UPDATE customer
-               SET name=%s, gmail=%s, phone=%s
-               WHERE id=%s
-            """, (name, email, phone, id_data))
+               SET CustomerName=%s, CustomerAddress=%s,  CustomerSalary=%s
+               WHERE customerID=%s
+            """, (name, address, salary, id_data))
         flash("Data Updated Successfully")
         con.commit()
         return redirect(url_for('Index'))
