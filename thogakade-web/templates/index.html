@@ -217,8 +217,207 @@
 
             </section>
 
+
+            <!--------------------------------------------------------------------------------------------------------->
+
             <section id="item" class="item">
                 <h1>Item Form</h1>
+
+                 <aside>
+                    <button type="button" class="btn btn-success  pull-right" data-toggle="modal"
+                            data-target="#my-item">Add
+                        item
+                    </button>
+                </aside>
+
+                <section>
+
+                    <table class="table table-striped">
+
+
+                        <tr>
+                            <th>item_id</th>
+                            <th>item_name</th>
+                            <th>item_quantity</th>
+                            <th>unit_price</th>
+                            <th>Action</th>
+
+
+                        </tr>
+
+
+                        {% for row in customer %}
+                        <tr>
+                            <td>{{row.0}}</td>
+                            <td>{{row.1}}</td>
+                            <td>{{row.2}}</td>
+                            <td>{{row.3}}</td>
+
+                            <td>
+
+
+                               <a href="/update/{{row.0}}" class="btn btn-warning btn-xs" data-toggle="modal"
+                           data-target="#modaleItemdit{{row.0}}">Edit</a>
+                        <a href="/delete/{{ row.0 }}" class="btn btn-danger btn-xs"
+                           onclick="return confirm('Are You Sure For Delete?')">Delete</a>
+
+                            </td>
+
+                        </tr>
+
+                        <div id="modaleItemdit{{row.0}}" class="modal fade" role="dialog" >
+
+                            <div class="modal-dialog">
+
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                        <h4 class="modal-title">Update Information</h4>
+
+                                    </div>
+
+                                    <div class="modal-body">
+
+                                        <form action="{{ url_for('update') }}" method="POST">
+
+                                            <div class="form-group">
+
+                                                <label>cus id:</label>
+                                                <input type="hidden" name="id" value="{{row.0}}">
+
+                                                <input type="text" class="form-control" name="id" value="{{row.0}}">
+
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <label>Name:</label>
+                                                <input type="hidden" name="id" value="{{row.2}}">
+
+                                                <input type="text" class="form-control" name="name" value="{{row.2}}">
+
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <label>address:</label>
+
+                                                <input type="text" class="form-control" name="address" value="{{row.1}}">
+
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <label>salary:</label>
+
+                                                <input type="text" class="form-control" name="salary" value="{{row.3}}">
+
+                                            </div>
+
+
+                                            <div class="form-group">
+
+                                                <button class="btn btn-primary" type="sbumit">Update</button>
+
+                                            </div>
+
+                                        </form>
+
+                                    </div>
+                                    <div class="modal-footer">
+
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                        </button>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {% endfor %}
+
+
+                        </tbody>
+
+
+                    </table>
+
+                    <div id="my-item" class="modal fade" role="dialog">
+
+                        <div class="modal-dialog">
+
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                    <h4 class="modal-title">Please Insert Data</h4>
+
+                                </div>
+
+                                <div class="modal-body">
+
+                                    <form action="{{ url_for('insert') }}" method="POST">
+
+                                        <div class="form-group">
+
+
+                                            <label>cus id:</label>
+                                            <input type="text" class="form-control" name="id" required="1">
+
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <label>Name:</label>
+                                            <input type="text" class="form-control" name="name" required="1">
+
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <label>address:</label>
+                                            <input type="text" class="form-control" name="address" required="1">
+
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <label>salary:</label>
+                                            <input type="text" class="form-control" name="salary" required="1">
+
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <button class="btn btn-primary" type="submit">Insert Data</button>
+
+                                        </div>
+
+                                    </form>
+
+                                </div>
+
+                                <div class="modal-footer">
+
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
             </section>
 
             <section id="order" class="order">
