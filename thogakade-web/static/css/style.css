@@ -8,9 +8,8 @@ body main{
 main>nav{
     width: 20%;
     position: fixed;
-    background-color: white;
-    top: 0;
-    bottom: 0;
+    background-color: #f6b458;
+    height: 100vh;
     display: grid;
     z-index: 10;
 }
@@ -61,12 +60,36 @@ main>section>section>section{
 
 .customer{
     background-color: #e8ff8e;
+    text-align: center;
 }
 
 .item{
     background-color: #9aa4ff;
+    text-align: center;
 }
 
 .order{
     background-color: #3c6662;
+    text-align: center;
+}
+
+.customer>aside{
+    width: 150px;
+    height: 40px;
+    position: absolute;
+    right: calc(100%/3*2.1);
+}
+
+.customer>aside>button{
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    background: #6f7dff;
+    color: white;
+    border: 0;
+}
+
+.customer>aside>button:hover{
+    background-color: #f6b458;
+    transition-duration: 1s;
 }
