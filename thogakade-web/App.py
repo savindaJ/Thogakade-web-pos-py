@@ -63,12 +63,28 @@ def update():
 
 @app.route('/item_update', methods=['POST', 'GET'])
 def item_update():
+    id = request.form['item-id']
+    description = request.form['item-name']
+    qty = int(request.form['item-qty'])
+    price = float(request.form['item-price'])
     print("update")
+    cur.execute("INSERT INTO item ( item_id, item_name, item_quantity,  unit_price) VALUES (%s, %s, "
+                "%s, %s)", (id, description, qty, price))
+    con.commit()
+    return redirect(url_for('Index'))
 
 
 @app.route('/item_insert', methods=['POST'])
 def item_insert():
+    id = request.form['item-id']
+    description = request.form['item-name']
+    qty = int(request.form['item-qty'])
+    price = float(request.form['item-price'])
     print("update")
+    cur.execute("INSERT INTO item ( item_id, item_name, item_quantity,  unit_price) VALUES (%s, %s, "
+                "%s, %s)", (id, description, qty, price))
+    con.commit()
+    return redirect(url_for('Index'))
 
 
 if __name__ == "__main__":
