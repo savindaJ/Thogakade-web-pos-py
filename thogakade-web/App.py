@@ -68,8 +68,11 @@ def item_update():
     qty = int(request.form['item-qty'])
     price = float(request.form['item-price'])
     print("update")
-    cur.execute("INSERT INTO item ( item_id, item_name, item_quantity,  unit_price) VALUES (%s, %s, "
-                "%s, %s)", (id, description, qty, price))
+    cur.execute("""
+                  UPDATE item
+                  SET item_name=%s, item_quantity=%s,  unit_price=%s
+                  WHERE item_id=%s
+               """, (description, price, qty,id))
     con.commit()
     return redirect(url_for('Index'))
 
