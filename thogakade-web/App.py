@@ -77,13 +77,13 @@ def item_update():
 @app.route('/item_insert', methods=['POST'])
 def item_insert():
     if request.method == "POST":
-        id = request.form['itemID']
+        id = request.form['Itemid']
         description = request.form['itemName']
-        qty = int(request.form['itemQty'])
-        price = float(request.form['itemPrice'])
+        unitPrice = int(request.form['unitPrice'])
+        qty = float(request.form['qty'])
         print("update")
         cur.execute("INSERT INTO item ( item_id, item_name, item_quantity,  unit_price) VALUES (%s, %s, "
-                    "%s, %s)", (id, description, qty, price))
+                    "%s, %s)", (id, description, qty, unitPrice))
         con.commit()
         return redirect(url_for('Index'))
 
