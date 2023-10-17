@@ -72,7 +72,7 @@ def item_update():
                   UPDATE item
                   SET item_name=%s, item_quantity=%s,  unit_price=%s
                   WHERE item_id=%s
-               """, (description, price, qty,id))
+               """, (description, price, qty, id))
     con.commit()
     return redirect(url_for('Index'))
 
