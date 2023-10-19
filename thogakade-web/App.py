@@ -63,10 +63,10 @@ def update():
 
 @app.route('/item_update', methods=['POST', 'GET'])
 def item_update():
-    id = request.form['Itemid']
-    description = request.form['itemName']
-    unitPrice = int(request.form['unitPrice'])
-    qty = float(request.form['qty'])
+    id = request.form['updateItemId']
+    description = request.form['updateItemName']
+    unitPrice = int(request.form['updateItemPrice'])
+    qty = float(request.form['updateItemQty'])
     print("update")
     cur.execute("""
                   UPDATE item
