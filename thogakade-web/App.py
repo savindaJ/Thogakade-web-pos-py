@@ -44,6 +44,14 @@ def delete(id_data):
     return redirect(url_for('Index'))
 
 
+@app.route('/deleteItem/<string:id_data>', methods=['GET'])
+def deleteItem(id_data):
+    flash("Record Has Been Deleted Successfully")
+    cur.execute("DELETE FROM item WHERE item_id=%s", (id_data,))
+    con.commit()
+    return redirect(url_for('Index'))
+
+
 @app.route('/update', methods=['POST', 'GET'])
 def update():
     if request.method == 'POST':
