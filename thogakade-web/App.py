@@ -30,7 +30,7 @@ def insert():
         address = request.form['address']
         salary = request.form['salary']
         print(address, name, salary)
-        cur.execute("INSERT INTO customer (customerID, CustomerAddress, CustomerName, CustomerSalary) VALUES (%s, %s, "
+        cur.execute("INSERT INTO customer (customerID, Name, address, salary) VALUES (%s, %s, "
                     "%s, %s)", (id, name, address, salary))
         con.commit()
         return redirect(url_for('Index'))
@@ -47,7 +47,7 @@ def delete(id_data):
 @app.route('/deleteItem/<string:id_data>', methods=['GET'])
 def deleteItem(id_data):
     flash("Record Has Been Deleted Successfully")
-    cur.execute("DELETE FROM item WHERE item_id=%s", (id_data,))
+    cur.execute("DELETE FROM item WHERE itemCode=%s", (id_data,))
     con.commit()
     return redirect(url_for('Index'))
 
@@ -61,7 +61,7 @@ def update():
         salary = request.form['salary']
         cur.execute("""
                UPDATE customer
-               SET CustomerName=%s, CustomerAddress=%s,  CustomerSalary=%s
+               SET Name=%s, address=%s,  salary=%s
                WHERE customerID=%s
             """, (name, address, salary, id_data))
         flash("Data Updated Successfully")
@@ -78,8 +78,8 @@ def item_update():
     print("update")
     cur.execute("""
                   UPDATE item
-                  SET item_name=%s, item_quantity=%s,  unit_price=%s
-                  WHERE item_id=%s
+                  SET description=%s, qtyOnHand=%s,  uniPrice=%s
+                  WHERE itemCode=%s
                """, (description, qty, unitPrice, id))
     con.commit()
     return redirect(url_for('Index'))
@@ -93,7 +93,7 @@ def item_insert():
         unitPrice = int(request.form['unitPrice'])
         qty = float(request.form['qty'])
         print("update")
-        cur.execute("INSERT INTO item ( item_id, item_name, item_quantity,  unit_price) VALUES (%s, %s, "
+        cur.execute("INSERT INTO item ( itemCode, description, qtyOnHand,  uniPrice) VALUES (%s, %s, "
                     "%s, %s)", (id, description, qty, unitPrice))
         con.commit()
         return redirect(url_for('Index'))
